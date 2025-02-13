@@ -1,0 +1,128 @@
+---
+import Figma from "./icons/Figma.astro";
+import LucidChart from "./icons/LucidChart.astro";
+import Link from "./icons/Link.astro";
+import LinkButton from "./LinkButton.astro";
+import Mysql from "./icons/Mysql.astro";
+import Google from "./icons/Google.astro";
+
+
+const PROJECTS = [
+  {
+    title: "Mockup para Patitas Tristes.",
+    description: "Diseño de interfaz para ONG ficticia de animales, enfocado en accesibilidad y elementos que inspiren confianza a los usuarios.",
+    link: "https://www.figma.com/design/suN3l3ZO6uhRbDvwNI0Vsg/PatitasTristes",
+    image: "/projects/mockup.webp",
+    tags: [
+      { 
+        name: "Figma", 
+        class: "bg-[#242220] text-white", 
+        icon: Figma 
+      }
+    ]
+  },
+  {
+    title: "Diagrama de caso de uso para Elite Runners.",
+    description: "Diagrama de caso de uso para una tienda online especializada en ropa deportiva, detallando las interacciones de los actores con el sistema.",
+    link: "https://lucid.app/lucidchart/f5c8ce8b-cc99-4f43-a1a5-b129a70e69dd/edit?viewport_loc=26%2C-659%2C2480%2C1159%2C0_0&invitationId=inv_f4080528-a35a-473b-97c2-668ccfc05e91",
+    image: "/projects/diagrama_caso_uso.webp",
+    tags: [
+      { 
+        name: "LucidChart", 
+        class: "bg-[#3381f5] text-white", 
+        icon: LucidChart 
+      }
+    ]
+  },
+  {
+    title: "Diagrama de entidad-relación para Elite Runners.",
+    description: "Diseño de la base de datos para la tienda online Elite Runners, incluyendo relaciones entre tablas y normalización.",
+    link: "https://dbdiagram.io/d/Elite_RunnersBD-67294aa1e9daa85aca4c99a8",
+    image: "/projects/entidadrelacion.webp",
+    tags: [
+      { 
+        name: "Mysql", 
+        class: "bg-[#1893c2] text-white", 
+        icon: Mysql 
+      }
+    ]
+  },
+  {
+    title: "Diagrama de clases para Elite Runners.",
+    description: "El diagrama de clases de Elite Runners representa la estructura del sistema, definiendo sus principales entidades y sus relaciones. Incluye clases como Usuario, con subtipos como Registrado o Administrador, que gestionan productos, compras y reseñas...",
+    link: "https://lucid.app/lucidchart/2efcfc6a-5397-4aaa-ba7a-64808f54bbd3/edit?viewport_loc=184%2C-362%2C4045%2C1891%2C0_0&invitationId=inv_eaf2cc1e-65a0-40e2-9718-f982b38df9e5",
+    image: "/projects/diagramaclases.webp",
+    tags: [
+      { 
+        name: "LucidChart", 
+        class: "bg-[#3381f5] text-white", 
+        icon: LucidChart 
+      },
+    ]
+  },
+  {
+    title: "Documentación en desarrollo para Elite Runners",
+    description: "La documentación de Elite Runners detalla el desarrollo de una tienda en línea especializada en zapatillas deportivas, disponible como aplicación web y móvil. Incluye especificaciones técnicas, diagramas UML (casos de uso, clases y entidad-relación)...",
+    link: "https://docs.google.com/document/d/1lBDza649MoTkDu7rr6qc_0mnuCz6OAKO/edit?usp=sharing&ouid=104853710312007277154&rtpof=true&sd=true",
+    image: "/projects/elite_runners.webp",
+    tags: [
+      { 
+        name: "Google Docs", 
+        class: "bg-[#102a30] text-white", 
+        icon: Google  
+      }
+    ]
+  },
+  {
+  title: "Base de datos para un centro médico",
+  description: "La base de datos del Centro Médico, desarrollada por mí, fue diseñada con datos ficticios e implementada en MySQL utilizando Procedures, CALLs, cursores, triggers y más para automatizar procesos como la gestión de citas, historial médico y facturación.",
+  image: "/projects/centromedico.webp",
+  tags: [
+    { 
+      name: "MySQL", 
+      class: "bg-[#1893c2] text-white", 
+      icon: Mysql 
+    }
+  ],
+  link: "/downloads/centromedico_MYSQL.zip"
+}
+];
+---
+
+<div class="flex flex-col gap-y-16">
+  {PROJECTS.map(({ image, title, description, tags, link }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+      <div class="w-full md:w-1/2">
+        <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+          <img alt={title} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+        </div>
+      </div>
+
+      <div class="w-full md:w-1/2 md:max-w-lg">
+        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">{title}</h3>
+        <div class="flex flex-wrap mt-2">
+          <ul class="flex flex-row mb-2 gap-x-2">
+            {tags.map((tag) => (
+              <li>
+                <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+                  <tag.icon class="size-4" />
+                  {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+          <footer class="flex items-end justify-start mt-4 gap-x-4">
+            {link && (
+              <LinkButton href={link}>
+                <Link class="size-4" />
+                Preview
+              </LinkButton>
+            )}
+          </footer>
+        </div>
+      </div>
+    </article>
+  ))}
+</div> 

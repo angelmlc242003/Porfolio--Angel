@@ -1,0 +1,30 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "Actualmente...",
+    title: "Estudiando la carrera Analista de Sistemas",
+    company: "Da Vinci",
+    description:
+      "Como estudiante de Da Vinci, he crecido enormemente como persona... He aprendido a dominar diversas tecnologías, y deseo aplicarlas en un puesto desafiante que me permita seguir desarrollándome. Con mi graduación prevista en julio de 2025, estoy preparado para enfrentar nuevos retos e innovar.",
+    link: "https://davinci.edu.ar/carreras/analista-de-sistemas",
+  },
+  {
+    date: "Septiembre 2020",
+    title: "Bachiller formado en Orientación y Convivencia.",
+    company: "Colegio Nuestra Señora del Valle",
+    description:
+      "Obtuve mi título de Bachiller en Venezuela, con formación en Orientación y Convivencia. Esta experiencia fortaleció mis valores, mi capacidad para trabajar en equipo y mis habilidades interpersonales, brindándome una base sólida para enfrentar retos y aportar en cualquier entorno.",
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
