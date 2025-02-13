@@ -20,7 +20,7 @@ const PROJECTS = [
         icon: Figma 
       }
     ]
-  },
+  }, 
   {
     title: "Diagrama de caso de uso para Elite Runners.",
     description: "Diagrama de caso de uso para una tienda online especializada en ropa deportiva, detallando las interacciones de los actores con el sistema.",
@@ -57,7 +57,7 @@ const PROJECTS = [
         name: "LucidChart", 
         class: "bg-[#3381f5] text-white", 
         icon: LucidChart 
-      },
+      }
     ]
   },
   {
@@ -74,27 +74,31 @@ const PROJECTS = [
     ]
   },
   {
-  title: "Base de datos para un centro médico",
-  description: "La base de datos del Centro Médico, desarrollada por mí, fue diseñada con datos ficticios e implementada en MySQL utilizando Procedures, CALLs, cursores, triggers y más para automatizar procesos como la gestión de citas, historial médico y facturación.",
-  image: "/projects/centromedico.webp",
-  tags: [
-    { 
-      name: "MySQL", 
-      class: "bg-[#1893c2] text-white", 
-      icon: Mysql 
-    }
-  ],
-  link: "/downloads/centromedico_MYSQL.zip"
-}
+    title: "Base de datos para un centro médico",
+    description: "La base de datos del Centro Médico, desarrollada por mí, fue diseñada con datos ficticios e implementada en MySQL utilizando Procedures, CALLs, cursores, triggers y más para automatizar procesos como la gestión de citas, historial médico y facturación.",
+    image: "/projects/centromedico.webp",
+    tags: [
+      { 
+        name: "MySQL", 
+        class: "bg-[#1893c2] text-white", 
+        icon: Mysql 
+      }
+    ],
+    link: "/downloads/centromedico_MYSQL.zip"
+  }
 ];
----
+
 
 <div class="flex flex-col gap-y-16">
   {PROJECTS.map(({ image, title, description, tags, link }) => (
     <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
       <div class="w-full md:w-1/2">
-        <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-          <img alt={title} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+        <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50 bg-gray-200">
+          <img 
+            alt={title} 
+            class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" 
+            src={image} 
+          />
         </div>
       </div>
 
@@ -125,4 +129,4 @@ const PROJECTS = [
       </div>
     </article>
   ))}
-</div> 
+</div>
